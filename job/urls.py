@@ -10,6 +10,7 @@ urlpatterns = [
     url('employer/addvacancy/$', views.vacancy, name= 'addvacancy'),
     url('employee/apply/$', views.application, name= 'application'),
     url('accounts/select/$', views.accountmanagement, name= 'select'),
-    url('employee/create/$', views.employee , name='create_employee')
+    url('employee/create/$', views.employee , name='create_employee'),
+    url('vacancies/$', views.vacancies, name='vacancies')
     
 ]

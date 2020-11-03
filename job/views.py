@@ -2,6 +2,7 @@ from django.shortcuts import render, redirect
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.models import User
 from .forms import employeeform, employerForm,vacancyform,applicationform
+from .models import Vacancy, Application,Employer,Employee
 
 
 
@@ -53,6 +54,22 @@ def accountmanagement(request):
             return redirect(employee)
 
     return render(request, 'accountmanagement.html')
+
+
+
+
+def vacancies(request):
+    available_vacancies = Vacancy.objects.all()
+
+    return render(request ,'vacancies.html', {"vacancies": available_vacancies})
+
+
+
+
+
+
+
+
 
 
 
