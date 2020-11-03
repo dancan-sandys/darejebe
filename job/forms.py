@@ -5,12 +5,12 @@ from django.contrib.auth.models import User
 class employerForm(forms.ModelForm):
     class Meta:
         model = Employer
-        fields = '__all__'
+        exclude = ['user']
 
 class employeeform(forms.ModelForm):
     class Meta:
         model = Employee
-        fields = '__all__'
+        exclude = ['user']
 
 
 class applicationform(forms.ModelForm):

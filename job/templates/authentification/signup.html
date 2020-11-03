@@ -1,5 +1,11 @@
 <form action="" method="POST">
     {% csrf_token %}
     {{form.as_p}}
+    <select name="account" id="">
+        
+        <option value="Employer">Employer</option>
+        <option value="Applicant">Applicant</option>
+       
+    </select>
     <button type="submit">Sign Up</button>
 </form>

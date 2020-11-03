@@ -9,8 +9,10 @@ urlpatterns = [
     url('employer/create/$', views.employer, name= 'create_employer'),
     url('employer/addvacancy/$', views.vacancy, name= 'addvacancy'),
     url('employee/apply/$', views.application, name= 'application'),
-    url('accounts/select/$', views.accountmanagement, name= 'select'),
     url('employee/create/$', views.employee , name='create_employee'),
-    url('vacancies/$', views.vacancies, name='vacancies')
+    url('vacancies/$', views.vacancies, name='vacancies'),
+    url('employee/profile/$', views.applicantprofile, name='applicantprofile'),
+    url('employer/profile/$', views.employerprofile, name='employerprofile'),
+    url('login/$', views.loginpage, name='login')
     
 ]

@@ -2,10 +2,11 @@
 
 {%block content%}
 
-<form action="" method="POST">
+{%for vacancy in vacancies%}
 
-    {{form.as_p}}
 
-</form>
+{{vacancy}}
+
+{%endfor%}
 
 {%endblock%}

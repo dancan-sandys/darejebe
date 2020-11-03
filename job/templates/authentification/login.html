@@ -1,0 +1,20 @@
+<div class="login">
+    <form action="" method="POST">
+        {%csrf_token%}
+        <h2>Log In</h2>
+        
+        <p><input type="text" name="username" placeholder="username"></p>
+
+        <p><input type="password" name="password" placeholder="password"></p>
+        
+        <select name="role" id="">
+        
+            <option value="Employer">Employer</option>
+            <option value="Applicant">Applicant</option>
+           
+        </select>
+        <input type="submit" class="btn loginbtn btn-dark" value="Log in">
+
+        <p>If you don't have an account you can create one <a href="#">here.</a></p>
+    </form>
+</div>
