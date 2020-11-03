@@ -16,7 +16,7 @@ def signup(request):
         if form.is_valid():
             form.save()
         
-        return redirect(employer)
+        return redirect(accountmanagement)
     
     return render(request, 'authentification/signup.html', {"form":form})
 
@@ -40,7 +40,21 @@ def employee(request):
 
             return redirect(landing)
 
-    return render(request , 'employee/create.html',{"form":form}) 
+    return render(request , 'employee/create.html',{"form":form})
+
+
+def accountmanagement(request):
+
+    if request.method == 'POST':
+        accounttype = request.POST['account']
+        if accounttype == 'Employer':
+            return redirect(employer)
+        else:
+            return redirect(employee)
+
+    return render(request, 'accountmanagement.html')
+
+
 
 def application(request):
     form = applicationform()
@@ -51,7 +65,7 @@ def application(request):
 
             return redirect(landing)
 
-    return render(request, 'employee/apply.html')
+    return render(request, 'employee/apply.html',{"form":form})
 
 def vacancy(request):
     form = vacancyform()
@@ -62,7 +76,8 @@ def vacancy(request):
 
             return redirect(landing)
 
-    return render(request, 'employer/addvacancy.html')
+    return render(request, 'employer/addvacancy.html',{"form":form})
+
 
 
 
