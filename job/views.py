@@ -4,7 +4,7 @@ from django.contrib.auth.models import User
 from django.contrib.auth import login,logout,authenticate
 from .forms import employeeform, employerForm,vacancyform,applicationform
 from .models import Vacancy, Application,Employer,Employee
-
+from django.contrib.auth.decorators import login_required
 
 
 # Create your views here.
@@ -54,7 +54,7 @@ def loginpage(request):
       
     return render(request, 'authentification/login.html')
 
-
+@login_required(login_url= 'login/')
 def employer(request):
     form = employerForm()
     user = request.user
@@ -70,6 +70,7 @@ def employer(request):
 
     return render(request, 'employer/create.html',{'form':form})
 
+@login_required(login_url= 'login/')
 def employee(request):
     form = employeeform()
     user = request.user
@@ -86,12 +87,13 @@ def employee(request):
     return render(request , 'employee/create.html',{"form":form})
 
 
-
+@login_required(login_url= 'login/')
 def vacancies(request):
     available_vacancies = Vacancy.objects.all()
 
     return render(request ,'employee/vacancies.html', {"vacancies": available_vacancies})
 
+@login_required(login_url= 'login/')
 def applicantprofile(request):
     user = request.user
     try:
@@ -102,6 +104,7 @@ def applicantprofile(request):
     return render( request, 'employee/profile.html', {'profile':applicant})
 
 
+@login_required(login_url= 'login/')
 def employerprofile(request):
     user = request.user
 
@@ -113,13 +116,17 @@ def employerprofile(request):
     return render( request, 'employer/profile.html', {'profile':profile})
 
 
+@login_required(login_url= 'login/')
 def employeehome(request):
     return render (request,  'employee/home.html')
 
+
+@login_required(login_url= 'login/')
 def employerhome(request):
     return render (request,  'employer/home.html')
 
 
+@login_required(login_url= 'login/')
 def searchvacancy(request):
 
     if 'vacancy' in request.GET and request.GET["vacancy"]:
@@ -135,6 +142,7 @@ def searchvacancy(request):
 
         return render(request, 'employee/vacancysearch.html', {"message":message})
 
+@login_required(login_url= 'login/')
 def searchvacancy(request):
 
     if 'vacancy' in request.GET and request.GET["vacancy"]:
@@ -151,35 +159,27 @@ def searchvacancy(request):
         return render(request, 'employee/vacancysearch.html', {"message":message})
 
 
+@login_required(login_url= 'login/')
+def apply(request, id):
+    vacancy = Vacancy.objects.get(id = id)
+    user = request.user 
+    employer = User.objects.get(username = vacancy.user)
+    employer = Employer.objects.get(user = employer)
+    new_application = Application(user=user,employer=employer, vacancy=vacancy)
+    new_application.save()
+    return redirect(applicantprofile)
 
 
+@login_required(login_url= 'login/')
+def applications(request):
+    user = request.user
+    profile = Employer.objects.get(user = user)
+    receivedapplications =Application.objects.filter(employer=profile)
+    message = 'You have no applicants so far'
 
+    return render(request, 'employer/applications.html', {"applications":receivedapplications, "message":message})
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-def application(request):
-    form = applicationform()
-    if request.method == 'POST':
-        form = applicationform(request.POST)
-        if form.is_valid():
-            form.save()
-
-            return redirect(landing)
-
-    return render(request, 'employee/apply.html',{"form":form})
-
+@login_required(login_url= 'login/')
 def vacancy(request):
     form = vacancyform()
     if request.method == 'POST':
@@ -191,6 +191,13 @@ def vacancy(request):
 
     return render(request, 'employer/addvacancy.html',{"form":form})
 
+
+@login_required(login_url= 'login/')
+def myapplications(request):
+    user = request.user 
+    Applications = Application.objects.filter(user=user)
+
+    return render(request, 'employee/applications.html', {'applications':Applications})
 
 
 

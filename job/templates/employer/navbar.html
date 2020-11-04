@@ -10,8 +10,8 @@
           <a class="nav-link" href="{%url 'employerprofile' %}">My Profile <span class="sr-only">(current)</span></a>
         </li>
 
-        <li class="nav-item">
-          <a class="nav-link " href="">Applications</a>
+        <li class="nav-item active">
+          <a class="nav-link " href="{%url 'applications' %}">Applications</a>
         </li>
   
       </ul>
@@ -21,6 +21,6 @@
       <span class="username navbar-text ">
         {{request.user}}
       </span>
-      <a class="text-white logout" href="">Logout</a>
+      <a class=" logout" href="{%url 'logout' %}">Logout</a>
       </div>
     </nav>

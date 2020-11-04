@@ -14,6 +14,10 @@
         <a class="nav-link text-white" href="{%url 'vacancies'%}">Vacancies</a>
       </li>
 
+      <li class="nav-item">
+        <a class="nav-link text-white" href="{%url 'myapplications'%}">My applications</a>
+      </li>
+
     </ul>
     <p class="text-white" >Employee Account</p>
     <form class="form-inline search-form my-2 my-lg-0" action="{%url 'searchvacancy'%}" role="search">
@@ -23,6 +27,6 @@
     <span class="username navbar-text text-white">
       {{request.user}}
     </span>
-    <a class="text-white logout" href="">Logout</a>
+    <a class="text-white logout" href="{%url 'logout' %}">Logout</a>
   </div>
 </nav>

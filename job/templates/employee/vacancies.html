@@ -3,17 +3,19 @@
 {%block content%}
 
 {%for vacancy in vacancies%}
+<form action="{%url 'apply' vacancy.id%}" method="POST">
+    {%csrf_token%}
+    <div class="card container">
 
-<div class="card container">
+        <p>{{vacancy.position}}</p>
+        <p>{{vacancy.Description}}</p>
+        <p>{{vacancy.email}}</p>
+        <p>{{vacancy.user.username}}</p>
+        <button class="btn" type="submit"> Apply</button>
 
-    <p>{{vacancy.position}}</p>
-    <p>{{vacancy.Description}}</p>
-    <p>{{vacancy.email}}</p>
-    <p>{{vacancy.user.username}}</p>
-    <button class="btn" > Apply</button>
+    </div>
 
-</div>
-
+</form>
 
 {%endfor%}
 

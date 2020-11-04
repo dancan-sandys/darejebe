@@ -1,0 +1,12 @@
+{%extends 'employee/base.html'%}
+
+{%block content%}
+
+{%for application in applications%}
+
+<p>{{application.employer.name}}</p>
+<p>{{application.vacancy.position}}</p>
+<p>{{application.Time}}</p>
+{%endfor%}
+
+{%endblock%}
