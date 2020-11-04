@@ -8,6 +8,11 @@ class Vacancy(models.Model):
     Description = models.TextField()
     email = models.EmailField()
     user = models.ForeignKey(User , on_delete=models.CASCADE)
+
+    def searchvacancy(cls, position):
+        vacancies = cls.objects.filter(position = position)
+
+        return vacancies
     
 
 

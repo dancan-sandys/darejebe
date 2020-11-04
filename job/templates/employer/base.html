@@ -1,3 +1,4 @@
+{% load bootstrap4 %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -6,8 +7,14 @@
     <title>Document</title>
 </head>
 <body>
+    {%block styles%}
+    {% bootstrap_css %}
+    {%endblock%}
+
     {%block navbar%}
+    
     {%include 'employer/navbar.html'%}
+    
     {%endblock%}
     {%block content%}{%endblock%}
 </body>

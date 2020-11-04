@@ -1,5 +1,5 @@
 <nav class="navbar navbar-expand-lg navbar-light bg-dark">
-    <a class="navbar-brand text-white" href="">Home</a>
+    <a class="navbar-brand text-white" href="{%url 'employeehome' %}">Home</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText"
       aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
@@ -7,15 +7,15 @@
     <div class="collapse navbar-collapse" id="navbarText">
       <ul class="navbar-nav mr-auto">
         <li class="nav-item active">
-          <a class="nav-link text-white" href="">My Profile <span class="sr-only">(current)</span></a>
+          <a class="nav-link text-white" href="{%url 'applicantprofile' %}">My Profile <span class="sr-only">(current)</span></a>
         </li>
         <li class="nav-item">
-          <a class="nav-link text-white" href="">Businesses</a>
+          <a class="nav-link text-white" href="{%url 'vacancies'%}">Vacancies</a>
         </li>
   
       </ul>
   
-      <form class="form-inline search-form my-2 my-lg-0" action="{% url 'search' %}" role="search">
+      <form class="form-inline search-form my-2 my-lg-0" action="" role="search">
         <input class="form-control mr-sm-2" type="search" placeholder="Search" name="category" aria-label="Search">
       </form>
   

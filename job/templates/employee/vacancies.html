@@ -1,11 +1,19 @@
-{%extends 'employer/base.html'%}
+{%extends 'employee/base.html'%}
 
 {%block content%}
 
 {%for vacancy in vacancies%}
 
+<div class="card container">
 
-{{vacancy}}
+    <p>{{vacancy.position}}</p>
+    <p>{{vacancy.Description}}</p>
+    <p>{{vacancy.email}}</p>
+    <p>{{vacancy.user.username}}</p>
+    <button class="btn" > Apply</button>
+
+</div>
+
 
 {%endfor%}
 

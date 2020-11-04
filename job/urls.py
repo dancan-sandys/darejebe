@@ -13,6 +13,8 @@ urlpatterns = [
     url('vacancies/$', views.vacancies, name='vacancies'),
     url('employee/profile/$', views.applicantprofile, name='applicantprofile'),
     url('employer/profile/$', views.employerprofile, name='employerprofile'),
-    url('login/$', views.loginpage, name='login')
+    url('login/$', views.loginpage, name='login'),
+    url('employee/home/$', views.employeehome, name= 'employeehome' ),
+    url('employer/home/$', views.employerhome, name= 'employerhome' ),
     
 ]

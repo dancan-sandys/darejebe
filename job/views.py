@@ -87,10 +87,6 @@ def employee(request):
 
 
 
-
-
-
-
 def vacancies(request):
     available_vacancies = Vacancy.objects.all()
 
@@ -117,6 +113,26 @@ def employerprofile(request):
     return render( request, 'employer/profile.html', {'profile':profile})
 
 
+def employeehome(request):
+    return render (request,  'employee/home.html')
+
+def employerhome(request):
+    return render (request,  'employer/home.html')
+
+
+def searchvacancy(request):
+    def search(request):
+
+    if 'username' in request.GET and request.GET["username"]:
+        searchedvacancy = request.GEt.get()
+        results = Vacancy.searchvacancy(searchedvacancy)
+
+        return render(request, 'vacancyresults')
+
+    else:
+        message = 'The search term you entered is not available'
+
+        return render(request, 'search.html', {"message":message})
 
 
 
