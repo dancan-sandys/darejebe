@@ -121,18 +121,19 @@ def employerhome(request):
 
 
 def searchvacancy(request):
-    def search(request):
 
-    if 'username' in request.GET and request.GET["username"]:
-        searchedvacancy = request.GEt.get()
-        results = Vacancy.searchvacancy(searchedvacancy)
+    if 'vacancy' in request.GET and request.GET["vacancy"]:
+        vacancysearched = request.GET.get('vacancy')
+        results = Vacancy.searchvacancy(vacancysearched)
 
-        return render(request, 'vacancyresults')
+        message = 'The vacancy you searched for is not yet available'
+
+        return render(request, 'employee/vacancysearch.html',{"results":results, "message":message})
 
     else:
-        message = 'The search term you entered is not available'
+        message = 'The vacancy you searched for is not yet available'
 
-        return render(request, 'search.html', {"message":message})
+        return render(request, 'employee/vacancysearch.html', {"message":message})
 
 
 
