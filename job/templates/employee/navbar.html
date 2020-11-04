@@ -1,27 +1,28 @@
 <nav class="navbar navbar-expand-lg navbar-light bg-dark">
-    <a class="navbar-brand text-white" href="{%url 'employeehome' %}">Home</a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText"
-      aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarText">
-      <ul class="navbar-nav mr-auto">
-        <li class="nav-item active">
-          <a class="nav-link text-white" href="{%url 'applicantprofile' %}">My Profile <span class="sr-only">(current)</span></a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link text-white" href="{%url 'vacancies'%}">Vacancies</a>
-        </li>
-  
-      </ul>
-  
-      <form class="form-inline search-form my-2 my-lg-0" action="{%url 'searchvacancy'%}" role="search">
-        <input class="form-control mr-sm-2" type="search" placeholder="Search" name="vacancy" aria-label="Search">
-      </form>
-  
-      <span class="username navbar-text text-white">
-        {{request.user}}
-      </span>
-      <a class="text-white logout" href="">Logout</a>
-      </div>
-    </nav>
+  <a class="navbar-brand text-white" href="{%url 'employeehome' %}">Home</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText"
+    aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarText">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item active">
+        <a class="nav-link text-white" href="{%url 'applicantprofile' %}">My Profile <span
+            class="sr-only">(current)</span></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link text-white" href="{%url 'vacancies'%}">Vacancies</a>
+      </li>
+
+    </ul>
+    <p class="text-white" >Employee Account</p>
+    <form class="form-inline search-form my-2 my-lg-0" action="{%url 'searchvacancy'%}" role="search">
+      <input class="form-control mr-sm-2" type="search" placeholder="Search" name="vacancy" aria-label="Search">
+    </form>
+
+    <span class="username navbar-text text-white">
+      {{request.user}}
+    </span>
+    <a class="text-white logout" href="">Logout</a>
+  </div>
+</nav>
