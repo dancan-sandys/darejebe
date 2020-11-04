@@ -135,6 +135,21 @@ def searchvacancy(request):
 
         return render(request, 'employee/vacancysearch.html', {"message":message})
 
+def searchvacancy(request):
+
+    if 'vacancy' in request.GET and request.GET["vacancy"]:
+        vacancysearched = request.GET.get('vacancy')
+        results = Vacancy.searchvacancy(vacancysearched)
+
+        message = 'The vacancy you searched for is not yet available'
+
+        return render(request, 'employee/vacancysearch.html',{"results":results, "message":message})
+
+    else:
+        message = 'The vacancy you searched for is not yet available'
+
+        return render(request, 'employee/vacancysearch.html', {"message":message})
+
 
 
 

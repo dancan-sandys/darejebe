@@ -40,5 +40,6 @@ class Application(models.Model):
     Time = models.DateTimeField(auto_now_add =True, blank = True)
     user = models.ForeignKey(User , on_delete=models.CASCADE)
 
+    
 
 

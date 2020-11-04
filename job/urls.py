@@ -16,5 +16,6 @@ urlpatterns = [
     url('login/$', views.loginpage, name='login'),
     url('employee/home/$', views.employeehome, name= 'employeehome' ),
     url('employer/home/$', views.employerhome, name= 'employerhome' ),
-    url('search/vacancy/$', views.searchvacancy, name='searchvacancy')
+    url('search/vacancy/$', views.searchvacancy, name='searchvacancy'),
+    url('search/applicant/$', views.searchvacancy, name='searchapplicant')
 ]
