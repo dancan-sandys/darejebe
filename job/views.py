@@ -184,9 +184,12 @@ def vacancy(request):
     form = vacancyform()
     if request.method == 'POST':
         form = vacancyform(request.POST)
+        user = request.user
         if form.is_valid():
-            form.save()
-
+            new_vacancy = form.save(commit=False)
+            new_vacancy.user = user 
+            new_vacancy.save()
+            
             return redirect(landing)
 
     return render(request, 'employer/addvacancy.html',{"form":form})

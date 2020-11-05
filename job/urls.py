@@ -6,7 +6,7 @@ from django.contrib.auth.views import logout_then_login
 
 
 urlpatterns = [
-    url('^$', views.landing, name = 'landing'),
+    url('^$', views.loginpage, name = 'login'),
     url('signup/$', views.signup , name='signup'),
     url('employer/create/$', views.employer, name= 'create_employer'),
     url('employer/addvacancy/$', views.vacancy, name= 'addvacancy'),

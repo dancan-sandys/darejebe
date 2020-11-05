@@ -15,10 +15,10 @@ class employeeform(forms.ModelForm):
 
 class applicationform(forms.ModelForm):
     class Meta:
-        model = Vacancy
+        model = Application
         fields = '__all__'
 
 class vacancyform(forms.ModelForm):
     class Meta:
-        model = Application
-        fields = '__all__'
+        model = Vacancy
+        exclude = ['user']
