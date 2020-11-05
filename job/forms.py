@@ -20,5 +20,5 @@ class applicationform(forms.ModelForm):
 
 class vacancyform(forms.ModelForm):
     class Meta:
-        model = Vacancy
+        model = Vacancy 
         exclude = ['user']
