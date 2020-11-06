@@ -60,6 +60,7 @@ def employer(request):
     user = request.user
     if request.method == 'POST':
         form = employerForm(request.POST)
+        print(form.is_valid)
         if form.is_valid():
             new_employer = form.save(commit=False)
             new_employer.user = user
