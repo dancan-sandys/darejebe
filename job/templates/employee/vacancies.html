@@ -1,22 +1,102 @@
 {%extends 'employee/base.html'%}
 
 {%block content%}
+<style>
+     @import url('https://fonts.googleapis.com/css?family=Oswald%7CPoppins');
+        body {
+            /* font-family: 'Oswald', sans-serif; */
+            font-family: 'Poppins', sans-serif;
+        }
+        .card-box {
+            background: #FAFAFA;
+            min-height: 300px;
+            position: relative;
+            padding: 30px 30px 20px;
+            margin-bottom: 20px;
+            display: -ms-flexbox;
+            display: flex;
+            -ms-flex-direction: column;
+            flex-direction: column;
+            -webkit-box-pack: justify;
+            -ms-flex-pack: justify;
+            justify-content: space-between;
+            position: relative;
+            cursor: pointer;
+        }
+        .card-box:hover {
+            background: linear-gradient(to right, #1fa2ff17 0%, #12d8fa2b 51%, #1fa2ff36 100%);
+        }
+        .card-box:after {
+            display: block;
+            background: #2196F3;
+            border-top: 2px solid #2196F3;
+            content: '';
+            width: 100%;
+            position: absolute;
+            left: 0;
+            right: 0;
+            top: 0;
+        }
+        .card-title h2 {
+            margin: 0;
+            padding-top: 5%;
+            color: #2196F3;
+            font-family: 'Oswald', sans-serif;
+            text-transform: uppercase;
+            font-size: 24px;
+            line-height: 1;
+            margin-bottom: 15px;
+        }
+        .card-title p {
+            margin: 0;
+            margin-bottom: 10px;
+            font-size: 16px;
+        }
+        .card-link a {
+            text-decoration: none;
+            font-family: 'Oswald', sans-serif;
+            color: #FF5722;
+            font-size: 15px;
+        }
+</style>
 
-{%for vacancy in vacancies%}
-<form action="{%url 'apply' vacancy.id%}" method="POST">
-    {%csrf_token%}
-    <div class="card container">
 
-        <p>{{vacancy.position}}</p>
-        <p>{{vacancy.Description}}</p>
-        <p>{{vacancy.email}}</p>
-        <p>{{vacancy.user.username}}</p>
-        <button class="btn" type="submit"> Apply</button>
+
+
+
+
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<!------ Include the above in your HEAD tag ---------->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/css/bootstrap-grid.min.css">
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+<div class="container">
+    <div class="row">
+        {%for vacancy in vacancies%}
+        <form action="{%url 'apply' vacancy.id%}" method="POST">
+            {%csrf_token%}
+            <div class="col-md-4">
+                <div class="card-box">
+                    <div class="card-title">
+                        <h2><strong>Available vacancy</strong>{{vacancy.position}}</h2>
+                        <p><strong>Vcancy Description</strong>{{vacancy.Description}}</p>
+                        <p><strong>Contact email</strong>{{vacancy.email}}</p>
+                        <p><strong>Employing agency</strong>{{vacancy.user.username}}</p>
+                    </div>
+                    <div class="card-link">
+                        <a href="" class="c-link">Learn More
+                            <i class="fa fa-angle-right"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </form>
+
+        {%endfor%}
 
     </div>
 
-</form>
 
-{%endfor%}
 
-{%endblock%}
+    {%endblock%}

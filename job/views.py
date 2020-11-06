@@ -190,6 +190,7 @@ def vacancy(request):
             new_vacancy.user = user 
             new_vacancy.save()
             
+            
             return redirect(landing)
 
     return render(request, 'employer/addvacancy.html',{"form":form})
