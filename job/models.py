@@ -18,6 +18,7 @@ class Vacancy(models.Model):
 
 
 class Employer(models.Model):
+    
     name = models.CharField(max_length = 30)
     location = models.CharField(max_length = 30)
     description = models.TextField()
